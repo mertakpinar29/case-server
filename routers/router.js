@@ -23,8 +23,8 @@ router.post("/create-session", bodyParser.json(), async (req, res) => {
         customer: existingCustomer.data[0].id,
       }),
       mode: "payment",
-      success_url: `http://localhost:3000?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000`,
+      success_url: `https://stripe-test-case.netlify.app?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://stripe-test-case.netlify.app`,
       ...(existingCustomer.data.length === 0 && { customer_email: email }),
       line_items: [
         {
